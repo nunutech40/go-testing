@@ -1,4 +1,4 @@
-package main
+package database
 
 import (
 	"database/sql"
@@ -7,17 +7,17 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 )
 
-var db *sql.DB
+var DB *sql.DB
 
-func initDB() {
+func InitDB() {
 	var err error
-	db, err = sql.Open("mysql", "myuser:mypassword@tcp(localhost:8000)/mydatabase")
+	DB, err = sql.Open("mysql", "myuser:mypassword@tcp(localhost:8000)/mydatabase")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	// Check connection
-	err = db.Ping()
+	err = DB.Ping()
 	if err != nil {
 		log.Fatal(err)
 	}
