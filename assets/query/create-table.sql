@@ -1,0 +1,1 @@
+CREATE  TABLE  users (id mediumint not null AUTO_INCREMENT, name varchar(50), age int1, primary key (id));
