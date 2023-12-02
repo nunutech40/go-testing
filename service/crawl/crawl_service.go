@@ -15,6 +15,5 @@ func NewCrawlService(repo *crawl_repository.CrawlRepository) *CrawlService {
 
 // CrawlURL initiates a crawl operation for the given URL and returns the results
 func (s *CrawlService) CrawlURL(url string) (string, error) {
-	// PerformCrawl now returns the results of the crawl and any error that occurred
 	return s.repo.PerformCrawl(url)
 }

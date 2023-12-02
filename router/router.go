@@ -9,6 +9,4 @@ import (
 func SetupRoutes(userHandler *user_handler.UserHandler, crawlHandler *crawl_handler.CrawlHandler) {
 	http.HandleFunc("/users", userHandler.GetUsers)
 	http.HandleFunc("/crawl", crawlHandler.HandleCrawl)
-
-	
 }

@@ -3,6 +3,7 @@ package crawl_handler
 import (
 	"encoding/json"
 	crawl_service "go-testing/service/crawl"
+	"log"
 	"net/http"
 )
 
@@ -37,10 +38,13 @@ func (h *CrawlHandler) HandleCrawl(w http.ResponseWriter, r *http.Request) {
 
 	// Call CrawlURL and handle the response and error
 	crawlResult, err := h.service.CrawlURL(payload.URL)
+
 	if err != nil {
 		http.Error(w, "Error performing crawl: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	log.Println(crawlResult)
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
